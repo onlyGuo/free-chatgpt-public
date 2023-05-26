@@ -1,13 +1,16 @@
 <script setup>
+import glob from "./libs/glob.js";
+import ChatList from "./components/ChatList.vue";
+import Content from "./components/Content.vue";
 </script>
 
 <template>
   <div style="height: 100%">
       <div class="left">
-
+        <chat-list :conf="glob"></chat-list>
       </div>
       <div class="content">
-
+        <content></content>
       </div>
   </div>
 </template>
