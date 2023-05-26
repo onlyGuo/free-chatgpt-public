@@ -1,5 +1,6 @@
 <script setup>
 
+import InputBox from "./InputBox.vue";
 </script>
 
 <template>
@@ -48,6 +49,10 @@
             创建一个Key，<a href="javascript:;">点击此处</a>设置你的Key即可使用。
         </div>
     </div>
+
+    <div class="input-box">
+        <input-box></input-box>
+    </div>
 </div>
 </template>
 
@@ -71,5 +76,12 @@
             font-weight: bold;
         }
     }
+}
+.input-box{
+    position: fixed;
+    z-index: 1;
+    width: calc(100% - 201px);
+    height: 60px;
+    bottom: 0;
 }
 </style>
