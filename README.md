@@ -4,3 +4,6 @@
 
 ## 预览地址（开发中，实时结果在这里预览，最终就是成品地址）：
 https://free.icoding.ink/
+
+## API使用了智友AI提供的公共接接口：
+https://chatdoc.icoding.ink/docs/#%E5%AF%B9%E5%A4%96%E6%9C%8D%E5%8A%A1
