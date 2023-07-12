@@ -2,6 +2,10 @@
 import glob from "./libs/glob.js";
 import ChatList from "./components/ChatList.vue";
 import Content from "./components/Content.vue";
+import MessageBox from "./components/MessageBox.vue";
+if(!glob.selectChat){
+    glob.selectChat = glob.chats[0];
+}
 </script>
 
 <template>
@@ -10,26 +14,22 @@ import Content from "./components/Content.vue";
         <chat-list :conf="glob"></chat-list>
       </div>
       <div class="content">
-        <content></content>
+        <content :conf="glob.selectChat"></content>
       </div>
-  </div>
-  <div style="z-index: 10;position:fixed;left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,.8); text-align: center">
-      <div style="margin-top: 200px">
-          <h1 style="color: white">相关帖子已被删除，本项目终止开发</h1>
-      </div>
+      <message-box></message-box>
   </div>
 </template>
 
 <style scoped lang="less">
 .left {
-  width: 200px;
+  width: 250px;
   height: 100%;
   background-color: #313131;
   border-right: 1px solid #ccc;
   float: left;
 }
 .content {
-  width: calc(100% - 201px);
+  width: calc(100% - 251px);
   height: 100%;
   float: right;
 }

@@ -1,31 +1,75 @@
 <script setup>
+import glob from "../libs/glob.js";
+
 const props = defineProps({
     conf: {
         type: Object,
         default: {
-            chats: [
-                {
-                    title: '',
-                    messages: [
-                        {
-                            role: 'assistant',
-                            content: '你好',
-                        }
-                    ],
-                }
-            ]
+            chats: []
         }
     }
 })
+const openPromt = (item) => {
+    const title = prompt('请输入会话名称', item.title);
+    if(title && title !== item.title){
+        // 判断是否有重名
+        for (let i in glob.chats){
+            if(glob.chats[i].title === title){
+                alert('已存在名称为' + title + '的会话');
+                return;
+            }
+        }
+        item.title = title;
+        glob.restore();
+    }
+}
+const deleteChat = (item) => {
+    if(confirm('确定删除会话' + item.title + '吗？')){
+        const index = glob.chats.indexOf(item);
+        glob.chats.splice(index, 1);
+        if(glob.selectChat === item){
+            if (glob.chats.length > 0){
+                glob.selectChat = glob.chats[0];
+            }else{
+                glob.selectChat = null;
+            }
+        }
+        glob.restore();
+    }
+}
+const newChat = () => {
+    const title = prompt('请输入会话名称', '新会话');
+    if(title){
+        // 判断是否有重名
+        for (let i in glob.chats){
+            if(glob.chats[i].title === title){
+                alert('已存在名称为' + title + '的会话');
+                return;
+            }
+        }
+        const chat = {
+            title: title,
+            messages: []
+        };
+        glob.chats.push(chat);
+        glob.selectChat = chat;
+        glob.restore();
+    }
+}
 </script>
 
 <template>
 <div style="calc(height: 100% - 10px)">
-    <div class="new-chat">New Chat</div>
+    <div class="new-chat" @click="newChat">New Chat</div>
     <div class="list">
-        <div class="item" v-for="item in props.conf.chats">
+        <div class="item" @click.stop="glob.selectChat = item" :class="{active: item === glob.selectChat}" v-for="item in props.conf.chats">
+            <img src="../assets/chat.svg" class="chat-icon" />
             <div class="title" v-text="item.title"></div>
-            <div class="delete">删除</div>
+            <div class="icons">
+                <img src="../assets/edit.svg" class="edit-icon" @click.stop="openPromt(item)"/>
+                <img src="../assets/delete.svg" class="delete-icon" @click.stop="deleteChat(item)" />
+            </div>
+<!--            <div class="delete"></div>-->
         </div>
     </div>
 </div>
@@ -43,6 +87,7 @@ const props = defineProps({
   border: gray solid 1px;
   border-radius: 10px;
   margin: 10px auto;
+  transition: all 0.3s;
     &:hover{
         background-color: #ccc;
         color: black;
@@ -54,24 +99,45 @@ const props = defineProps({
     overflow: auto;
     color: white;
     .item {
-        width: calc(100% - 20px);
+        width: calc(100% - 40px);
+        margin: 5px auto;
         height: 50px;
         line-height: 50px;
         padding: 0 10px;
-        border-bottom: 1px solid #ccc;
         display: flex;
         justify-content: space-between;
         align-items: center;
-      cursor: pointer;
-      &:hover{
-        background-color: #ccc;
-        color: black;
-      }
+        cursor: pointer;
+        border: #444444 solid 1px;
+        border-radius: 6px;
+        transition: all 0.3s;
+        &:hover{
+            border: #737373 solid 1px;
+        }
+        &.active{
+            background-color: #444444;
+        }
         .title {
             font-size: 16px;
         }
-        .delete {
-            font-size: 12px;
+        .edit-icon {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+        .delete-icon {
+            width: 15px;
+            height: 15px;
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+        .chat-icon{
+            width: 20px;
+            height: 20px;
         }
     }
 
