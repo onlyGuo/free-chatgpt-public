@@ -7,3 +7,8 @@ https://free.icoding.ink/
 
 ## API使用了智友AI提供的公共接接口：
 https://chatdoc.icoding.ink/docs/#%E5%AF%B9%E5%A4%96%E6%9C%8D%E5%8A%A1
+
+## ChatGPT二开交流群
+QQ群：138839973
+包含二开所需的OpenAI反向代理接口（国内可访问、防封）
+包含二开所需的全代理接口（国内可访问、防封、含CNY转USD直冲、含API访问地址）
