@@ -26,6 +26,7 @@ const show = ref(true);
                   <li>关于语音模型 - 必须注册私人账户，可凭借私人账户使用语音模型。</li>
                   <li>关于第三方插件 - 必须注册私人账户，可凭借私人账户进入插件市场。</li>
                   <li>本站提供APP（IOS请直接搜索"智友AI"）Android请<a style="color: dodgerblue" href="https://chat.icoding.ink/mobile.html">点此处</a>下载。</li>
+                  <li>本站所用的公共接口：<a style="color: dodgerblue" href="https://chatdoc.icoding.ink/docs/#%E5%AF%B9%E5%A4%96%E6%9C%8D%E5%8A%A1">接口文档</a>。</li>
               </ul>
           </div>
           <div class="message-footer">
