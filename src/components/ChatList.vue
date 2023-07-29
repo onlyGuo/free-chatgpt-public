@@ -61,6 +61,7 @@ const newChat = () => {
 <template>
 <div style="calc(height: 100% - 10px)">
     <div class="new-chat" @click="newChat">New Chat</div>
+    <div class="setting-btn" @click="glob.settings.open = true">设置</div>
     <div class="list">
         <div class="item" @click.stop="glob.selectChat = item" :class="{active: item === glob.selectChat}" v-for="item in props.conf.chats">
             <img src="../assets/chat.svg" class="chat-icon" />
@@ -140,6 +141,21 @@ const newChat = () => {
             height: 20px;
         }
     }
-
+}
+.setting-btn {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    height: 30px;
+    line-height: 30px;
+    border: dodgerblue solid 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    color: white;
+    &:hover{
+        background-color: dodgerblue;
+        color: white;
+    }
 }
 </style>

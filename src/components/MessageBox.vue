@@ -8,12 +8,13 @@ const show = ref(true);
   <div class="message-box" v-if="show">
       <div class="message">
           <div class="message-title">
-              <div class="title">我是标题</div>
+              <div class="title">必看说明</div>
               <div class="close">
                 <img src="../assets/close.svg" class="icon" @click="show = false">
               </div>
           </div>
           <div class="message-content">
+              <h1 style="font-size: 20px">使用须知</h1>
               <ul>
                   <li>本站点访问人数过多，集中在下午1:30~ 8:00, 请尽量错开高峰期使用。</li>
                   <li>提供免费的GPT-3.5和GPT4模型，无需注册。</li>
@@ -23,11 +24,19 @@ const show = ref(true);
                   <li>有关本站的任何问题，可以加入官方QQ群：<span style="color: dodgerblue">384426307</span>。</li>
                   <li>作者额外提供稳定高速的捐赠版，可以移步至：<a style="color: dodgerblue" href="https://chat.icoding.ink/">https://chat.icoding.ink</a></li>
                   <li>捐赠版没有并发限制，使用捐赠版时，你必须注册私人账户。</li>
+                  <li style="margin-top: 10px">如果请求连续出现多次400，说明当前正在有人盗刷接口，请登录捐赠版使用，捐赠版有账号体系，没人盗刷。捐赠版的公共聊天室依然是免费的且不限速，记得@ChatGPT。</li>
                   <li>关于语音模型 - 必须注册私人账户，可凭借私人账户使用语音模型。</li>
                   <li>关于第三方插件 - 必须注册私人账户，可凭借私人账户进入插件市场。</li>
                   <li>本站提供APP（IOS请直接搜索"智友AI"）Android请<a style="color: dodgerblue" href="https://chat.icoding.ink/mobile.html">点此处</a>下载。</li>
                   <li>本站所用的公共接口：<a style="color: dodgerblue" href="https://chatdoc.icoding.ink/docs/#%E5%AF%B9%E5%A4%96%E6%9C%8D%E5%8A%A1">接口文档</a>。</li>
                   <li>源码地址：<a style="color: dodgerblue" href="https://github.com/onlyGuo/free-chatgpt-public">https://github.com/onlyGuo/free-chatgpt-public</a>。</li>
+              </ul>
+              <h1 style="font-size: 20px">使用独立通道</h1>
+              <ul>
+                  <li>默认是共享通道，很容易繁忙，当接口繁忙时，你可以创建自己的独立通道。</li>
+                  <li>点击左上角设置按钮，填入你的服务地址和ApiKey即可切换到自己的独立通道。</li>
+                  <li>切换到独立通道后，将不受本站并发限制。</li>
+                  <li>若没有ApiKey，你可以<a href="https://dev.icoding.ink/" target="_blank">在这里创建</a>。创建好的Key可以应用到任意支持ApiKey的GPT镜像中，不仅限于本站。</li>
               </ul>
           </div>
           <div class="message-footer">

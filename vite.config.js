@@ -13,6 +13,12 @@ export default defineConfig({
         changeOrigin: true,
         ws: true,
       },
+      '/v1/chat/completions': {
+        // target: 'https://chat.icoding.ink', //API服务器的地址
+        target: 'https://api.icoding.ink', //API服务器的地址
+        changeOrigin: true,
+        ws: true,
+      },
     }
   },
 })
