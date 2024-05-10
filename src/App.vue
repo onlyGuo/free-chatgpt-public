@@ -23,11 +23,11 @@ const isMobile = () => {
     }
     return flag;
 }
-if(isMobile()) {
-    window.location.href = 'https://chat.icoding.ink/mobile.html';
-}else{
-    window.location.href = 'https://chat.icoding.ink/pc-chat';
-}
+// if(isMobile()) {
+//     window.location.href = 'https://chat.icoding.ink/mobile.html';
+// }else{
+//     window.location.href = 'https://chat.icoding.ink/pc-chat';
+// }
 
 </script>
 
